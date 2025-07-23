@@ -1,0 +1,41 @@
+def is_even(number):
+    """Check if a number is even."""
+    return number % 2 == 0
+
+def is_odd(number):
+    """Check if a number is odd."""
+    return number % 2 != 0
+
+def get_user_input():
+    """Get a number from the user."""
+    while True:
+        try:
+            user_input = input("Enter an integer (or type 'exit' to quit): ")
+            if user_input.lower() == 'exit':
+                print("Exiting the program.")
+                return None
+            number = int(user_input)
+            return number
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
+
+def main():
+    """Main function to run the even or odd checker."""
+    print("Welcome to the Even or Odd Checker!")
+    
+    while True:
+        number = get_user_input()
+        if number is None:
+            break
+        
+        if is_even(number):
+            print(f"{number} is an even number.")
+        elif is_odd(number):
+            print(f"{number} is an odd number.")
+        
+        print()  # Print a blank line for better readability
+
+    print("Thank you for using the Even or Odd Checker!")
+
+if _name_ == "_main_":
+    main()
